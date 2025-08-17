@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 6px 12px;
+            font-size: 16px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            padding: 8px 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tables</h1>
+
+    <input type="number" id="num" placeholder="Enter a number">
+    <button onclick="printTable()">Print Table</button>
+
+    <div id="tableArea"></div>
+
+    <script>
+        function printTable() {
+            let number = document.getElementById("num").value;
+            let tableHTML = "<table>";
+            
+            if (number === "") {
+                document.getElementById("tableArea").innerHTML = "<p>Please enter a number!</p>";
+                return;
+            }
+
+            for (let i = 1; i <= 10; i++) {
+                tableHTML += "<tr><td>" + number + " × " + i + "</td><td>=</td><td>" + (number * i) + "</td></tr>";
+            }
+            
+            tableHTML += "</table>";
+            document.getElementById("tableArea").innerHTML = tableHTML;
+        }
+    </script>
+
+</body>
+</html>
